@@ -100,7 +100,7 @@ run_tests_for_model() {
     --max_num_batched_tokens 8192 \
     --gpu-memory-utilization 0.3 \
     --tensor-parallel-size $PREFILLER_TP_SIZE \
-    --kv-transfer-config '{\"kv_connector\":\"NixlConnector\",\"kv_role\":\"kv_both\",\"kv_buffer_device\":\"cpu\"}'"
+    --kv-transfer-config '{\"kv_connector\":\"NixlConnector\",\"kv_role\":\"kv_both\",\"kv_buffer_device\":\"hpu\"}'"
 
     if [ -n "$model_args" ]; then
     FULL_CMD="$BASE_CMD $model_args"
@@ -133,7 +133,7 @@ run_tests_for_model() {
     --max_num_batched_tokens 8192 \
     --gpu-memory-utilization 0.3 \
     --tensor-parallel-size $DECODER_TP_SIZE \
-    --kv-transfer-config '{\"kv_connector\":\"NixlConnector\",\"kv_role\":\"kv_both\",\"kv_buffer_device\":\"cpu\"}'"
+    --kv-transfer-config '{\"kv_connector\":\"NixlConnector\",\"kv_role\":\"kv_both\",\"kv_buffer_device\":\"hpu\"}'"
 
     if [ -n "$model_args" ]; then
     FULL_CMD="$BASE_CMD $model_args"

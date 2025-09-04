@@ -2849,7 +2849,8 @@ class HPUModelRunner(KVConnectorModelRunnerMixin):
         if has_kv_transfer_group():
             #kv_caches = { layer: torch.stack((tup[0], tup[1])) for layer,tup in kv_caches.items()}
             get_kv_transfer_group().register_kv_caches(kv_caches)
-            get_kv_transfer_group().set_host_xfer_buffer_ops(copy_kv_blocks)
+            
+            #get_kv_transfer_group().set_host_xfer_buffer_ops(copy_kv_blocks)
             global hpu_buffer
             #if hpu_buffer is None:
             #    _, num_kv_heads, head_size = kv_cache_shape
